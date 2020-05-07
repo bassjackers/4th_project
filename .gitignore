@@ -391,3 +391,8 @@ fabric.properties
 
 
 # Custom files
+secrets.json
+db_info_local.json
+db_info_production.json
+
+
