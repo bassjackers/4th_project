@@ -19,9 +19,9 @@ with open(db_file, 'r') as f:
 DATABASES = {
     # local용 DB Info
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': db_info.get('db_name'),
-        'PASSWORD': db_info.fet('db_password'),
+        'PASSWORD': db_info.get('db_password'),
         'USER': db_info.get('db_user'),
         'HOST': db_info.get('db_host'),
         'PORt': db_info.get('db_port'),
