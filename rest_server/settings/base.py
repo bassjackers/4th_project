@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'member',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# AWS S3
+AWS_ACCESS_KEY_ID = 'AKIA6JFE22EBW5KZV35H'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_DEFAULT_ACL = 'public-read'
+AWS_REGION = 'ap-northeast-2'
+AWS_STORAGE_BUCKET_NAME = 'rest-server'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

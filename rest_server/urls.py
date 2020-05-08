@@ -19,7 +19,10 @@ from rest_framework import routers
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.conf import settings
 
+
+import debug_toolbar
 import member.api
 
 schema_view = get_schema_view(
@@ -45,3 +48,9 @@ urlpatterns = [
     path('api/doc', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('api/v1/', include((router.urls, 'member'), namespace='api')),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns +=[
+        path('__debug__/', include(debug_toolbar.urls)),
+    ]
